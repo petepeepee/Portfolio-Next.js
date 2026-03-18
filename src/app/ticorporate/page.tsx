@@ -5,46 +5,160 @@ import Image from 'next/image';
 
 const Ticorporate: React.FC = () => {
   const [isEnlarged, setIsEnlarged] = useState(false);
-  const handleImageClick = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
     setIsEnlarged(!isEnlarged);
   };
+
+  const enlargeImage = (index: number) => {
+    if (index !== currentImageIndex) {
+      setIsEnlarged(!isEnlarged);
+    }
+  };
+
+  const images: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  }[] = [
+    {
+      src: '/datareducer1.png',
+      alt: 'Image 1',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/datareducer2.png',
+      alt: 'Image 2',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/datareducer3.png',
+      alt: 'Image 3',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/navigointifunktio.png',
+      alt: 'Image 4',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/redux-devtools.png',
+      alt: 'Image 5',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/saavutettavuus.png',
+      alt: 'Image 6',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/stackbuildernappulat.png',
+      alt: 'Image 7',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/storage.png',
+      alt: 'Image 8',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/store.png',
+      alt: 'Image 9',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/storets_persistConfig.png',
+      alt: 'Image 10',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/storewrap.png',
+      alt: 'Image 11',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/tilanjaarvonesimerkki.png',
+      alt: 'Image 12',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/tutorial.png',
+      alt: 'Image 13',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/tutorialmodal.png',
+      alt: 'Image 14',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/tutorialmodalinreitinkuuntelija.png',
+      alt: 'Image 15',
+      width: 700,
+      height: 700,
+    },
+    {
+      src: '/useEffectesimerkki.png',
+      alt: 'Image 16',
+      width: 700,
+      height: 700,
+    },
+  ];
 
   return (
     <main className="ticorporatePage">
       <div className="ticoText">
-        <h1>Tänne ticorporatesta tietoja ja kuvat karuselli itemiin</h1>
-        <h2>Projektin kuvaus</h2>
+        <h2>Project description</h2>
         <p>
-          PACKY on suunniteltu työkaluksi aloitteleville sovelluskehittäjille.
-          Sovellus tarjoaa vaihtoehtoja teknologiaratkaisuista käyttäjän
-          suunnittelemalle sovellukselle, tämän valitsemien teknologioiden sekä
-          sovelluksen ominaisuuksien perusteella.
+          PACKY is designed as a tool for beginner application developers. The
+          application offers options for technology solutions for the
+          application designed by the user, based on the technologies chosen by
+          the user and the features of the application.
         </p>
 
         <p>
-          Sovelluksen pohjana toimi keväälle suunniteltu Software
-          Engineering-kurssin projekti, josta muokattiin toimivampi ja parempi
-          kokonaisuus.
+          The application was based on a Software Engineering course project
+          planned for the spring, which was modified into a more functional and
+          better overall entity.
         </p>
 
-        <h2>Rooli</h2>
+        <h2>Role</h2>
 
         <p>
-          Pääroolini projektissa oli frontend-kehittäjä ja vastasin pääasiassa
-          tilanhallinnasta. Sivuroolinani oli tarkoitus toimia testaajana, mutta
-          tilanhallinta ja muut frontend-kehitystehtävät vaativat sen verran
-          paljon aikaa, että sovimme auttavani Matiasta tarvittaessa testauksen
-          kanssa. TC-Hopsissa toivomani tekninen rooli siis järjestyi.
+          My main role in the project was as a frontend developer, and I was
+          mainly responsible for state management. My secondary role was
+          supposed to be as a tester, but state management and other frontend
+          development tasks took up so much time that we agreed I would help
+          Matias with testing if needed. In TC-Hops, the technical role I wanted
+          was therefore arranged.
         </p>
 
         <p>
-          Projektin aikana osallistuin myös sisällöntuotantoon, eri toimintojen
-          suunnitteluun ja toteutukseen, saavutettavuuden parantamiseen sekä
-          optimointiin. Käytimme projektiin Reactin Next.js -frameworkia,
-          tilanhallintaan käytin Redux toolkit sekä Redux-Persist -kirjastoja.
+          During the project, I also participated in content creation, planning
+          and implementation of various functions, improving accessibility, and
+          optimization. For the project, we used the React Next.js framework,
+          and for state management, I used the Redux Toolkit and Redux-Persist
+          libraries.
         </p>
 
-        <h2>Käyttämäni teknologiat ja työkalut</h2>
+        <h2>Technologies and tools used</h2>
 
         <ul className="teknologiat">
           <li>VSCode</li>
@@ -56,325 +170,235 @@ const Ticorporate: React.FC = () => {
           <li>Git</li>
         </ul>
 
-        <h2>Projektin alku</h2>
+        <h2>Start of the project</h2>
 
         <p>
-          Ennen Ticorporate -projektin alkamista minulla oli kohtuu vahva luotto
-          omiin kykyihini sovelluskehityksessä, olisin sitten tekemisissä
-          frontendin taikka backendin parissa ja tiedonhakutaitoihini sekä
-          oppimis/soveltamiskykyyni. Luottamuksestani huolimatta, projektin
-          alkaessa ja tilanhallinnan laskeutuessa harteilleni, jännitys kasvoi
-          hieman johtuen suhteellisen pienestä kokemuksesta Next.js frameworkin
-          sekä yleisesti tilanhallinnan käytöstä, jota oli aiemmilla kursseilla
-          käyty läpi vähäisesti. Kuten jo aiemmin mainittu tilanhallintaa varten
-          valitsin Reduxin, joka on hieman vanhahtava, mutta lukiessani
-          opinnäytetyötä Reactin tilanhallintajärjestelmistä päädyin tähän
-          valintaan. Projektin alku olikin osaltani kertausta Next.js käytöstä
-          ja dokumentaatiosta, sekä Reduxin dokumentaation läpikäynnistä ja
-          harjoittelusta.
+          Before the Ticorporate project started, I had fairly strong confidence
+          in my abilities in application development, whether I was dealing with
+          the frontend or the backend, as well as in my research skills and my
+          ability to learn and apply knowledge. Despite my confidence, when the
+          project began and the state management responsibilities fell on my
+          shoulders, my nervousness increased somewhat due to my relatively
+          limited experience with the Next.js framework and state management in
+          general, which had only been briefly covered in previous courses. As
+          mentioned earlier, for state management, I chose Redux, which is
+          somewhat outdated, but after reading a thesis on React's state
+          management systems, I arrived at this choice. The beginning of the
+          project for me involved reviewing the use of Next.js and its
+          documentation, as well as going through Redux documentation and
+          practice.
         </p>
 
         <p>
-          Kokemukseni sovelluskehityksestä ryhmänä rajautui jo mainittuun kevään
-          Software Engineering-kurssiin ja näin suuren skaalan projekti tuli
-          myös uutena tuttavuutena. Aiempi tausta projekteista oli suurimmalta
-          osin kurssien lopputöiden parissa, eivätkä nämä olleet lähellekään
-          samalla seinällä Ticorporaten kanssa. Tiimityö sinänsä oli itselleni
-          tuttua ja koen olevani vastuullinen, niin sanotusti helppo työkaveri.
-          Tämän vuoksi olin suhteellisen varma, ettei sen suhteen tulisi
-          ongelmia ja koin tiimityöskentelyn olevan itselleni melko suuri
-          vahvuus. Yleisesti ottaen SCRUM metodi ja yleiset pelisäännöt saatiin
-          ratkaistua helposti sekä kehitysympäristö pystyyn nopeasti.
+          My experience in application development as a team was limited to the
+          aforementioned Spring Software Engineering course, and thus a
+          large-scale project was also a new experience. My previous background
+          with projects was mostly with course final projects, and these were
+          not even close to the same level as Ticorporate. Teamwork itself was
+          familiar to me, and I consider myself responsible, so to speak an easy
+          colleague to work with. For this reason, I was relatively confident
+          that there would be no problems in that regard, and I felt that
+          teamwork was quite a strength for me. In general, the SCRUM method and
+          general rules were easily resolved, and the development environment
+          was set up quickly.
         </p>
 
-        <h2>Mitä Ticorporate opetti ja suurimmat onnistumiset</h2>
+        <h2>What Ticorporate taught and the biggest successes</h2>
 
         <p>
-          TC-Hops keskustelussa kerroinkin tavoitteenani olevan tekninen rooli
-          ja kehittyminen niin sovelluskehittäjän teknisessä osaamisessa kuin
-          myös itseluottamuksen kasvattamisessa omaan osaamiseeni.
-          Tarkoituksenani oli myös kehittää taitojani projektityössä ja parantaa
-          ymmärrystäni sovelluskehityksen eri vaiheista sekä vahvistaa
-          ymmärrystä ja valmiutta työelämää varten. Mielestäni saavutin
-          asettamani tavoitteet, jotka asetin itselleni.
+          In the TC-Hops discussion, I also mentioned that my goal is to have a
+          technical role and to develop both my technical skills as an
+          application developer and my self-confidence in my own abilities. My
+          intention was also to develop my project work skills, improve my
+          understanding of the different stages of application development, and
+          strengthen my understanding and readiness for working life. I believe
+          I achieved the goals I set for myself.
         </p>
 
         <p>
-          Syitä luottamukseeni ovat seuraavanlaiset asiat: harjaannuin Next.js
-          käytössä ja ymmärrykseni/osaamiseni sovelluskehityksessä parani jo
-          syventymällä Angularin jälkeen toisenlaiseen frameworkiin. Next.js
-          käyttö opetti käyttämään "vapaampaa" sovelluskehystä, tarkoittaen
-          käytettävien välineiden valintaa kun Angular sisältää paljon enemmän
-          valmiita ratkaisuja esimerkiksi tilanhallinnan suhteen. Esimerkiksi
-          tilanhallintaan olisi ollut erilaisia kirjastoja, joista valitsimme
-          Reduxin. Kehysten välillä oli eroja myös esimerkiksi reitityksessä,
-          kun Angularilla reititys tapahtuu manuaalisesti ja Next.js käyttää
-          tiedostopohjaista reititystapaa. Koen, että henkilökohtaisesti uuden
-          "vapaamman" kehyksen käyttäminen antoi minulle perspektiiviä varsinkin
-          käytettävien ratkaisujen suhteen ja niiden tekemisestä. Tilanhallinnan
-          toteutus syvensi tietämystäni ja osaamistani monellakin tapaa,
-          esimerkiksi Storen määrittely ja käyttöönotto sovelluksessa, tilan
-          tallentuminen sovellukselle oikeanlaisella tavalla (aluksi tallennus
-          localstorageen, kun taas lopussa muutos sessionstorageen), tilan
-          välittäminen/muuttaminen eri komponenteissa funktioilla.
-          Tilanhallinnan lisäksi pääsin kehittämään ja suunnittelemaan yleisesti
-          toiminnallisuuksia kuten eri modaalien luomiseen, navigointiin
-          sovelluksessa sekä saavutettavuuden kehittämiseen. Autoin myös
-          backend-hakujen kanssa, ja yleisesti ongelmien tullessa eteen. Kurssin
-          pituus ja sen sisältämät sprintit sekä demoesitykset myös laajensivat
-          ymmärrystäni sovelluskehitysprojektin prosessista ja projektin
-          pilkkomisesta pieniin osiin ja tärkeimpien asioiden tunnistamisessa
-          tavoitteiden asettelussa yleisen projektityöskentelyn lisäksi.
+          The reasons for my confidence are as follows: I gained experience
+          using Next.js, and my understanding/skills in application development
+          improved by delving into a different framework after Angular. Using
+          Next.js taught me to work with a more 'flexible' framework, meaning
+          choosing the tools to use, whereas Angular includes many more
+          ready-made solutions, for example regarding state management. For
+          state management, there were different libraries available, and we
+          chose Redux. There were differences between the frameworks also in
+          routing, for example, where routing in Angular is done manually, and
+          Next.js uses a file-based routing approach. I feel that personally
+          using a new 'more flexible' framework gave me perspective, especially
+          regarding the solutions used and how to implement them. Implementing
+          state management deepened my knowledge and skills in many ways, for
+          example defining and implementing the Store in the application, saving
+          state for the application in the correct way (initially saving to
+          localStorage, whereas at the end changing to sessionStorage),
+          passing/changing state in different components using functions. In
+          addition to state management, I got to develop and design
+          functionalities in general such as creating different modals,
+          navigating within the application, and improving accessibility. I also
+          assisted with backend queries, and more generally when problems arose.
+          The length of the course and its sprints and demo presentations also
+          expanded my understanding of the application development project
+          process and breaking the project into smaller parts, as well as
+          recognizing the most important elements when setting goals in addition
+          to general project work.
         </p>
 
         <ul>
-          <li>SCRUM-käytänteet:</li>
+          <li>SCRUM practices:</li>
           <p>
-            Ryhmällämme oli melko vapaamuotoinen/modifioitu lähestymistapa
-            SCRUM-käytänteisiin, mikä ei välttämättä toimisi kaikissa ryhmässä,
-            mutta meidän ryhmässämme se toimi moitteettomasti. Sprintit
-            suunniteltiin ja pilkottiin yhdessä valkotaululle ja päivittäin
-            kävimme läpi, mitä kullakin oli työn alla. Omalaatuinen käytäntömme
-            toimi moitteettomasti, ja suurimmalta osalta saimme jokaiseen
-            sprinttiin tehtyä suunnittelemamme tehtävät.
+            Our group had a fairly informal/modified approach to SCRUM
+            practices, which might not work in every team, but in our group it
+            worked flawlessly. The sprints were planned and broken down together
+            on a whiteboard, and every day we went through what each person was
+            working on. Our unique practice worked flawlessly, and for the most
+            part, we were able to complete the tasks we had planned for each
+            sprint.
           </p>
           <p>
-            Vaikka minulla olikin kevään kursseilta jo vähäinen kokemus
-            SCRUM-projektista, ymmärrys eri roolien tehtäviin ja kokonaisuuden
-            hallintaan kasvoi projektin aikana.
-          </p>
-
-          <li>Ryhmätyö: </li>
-          <p>
-            Nimenomaan sovelluskehityksen näkökulmasta, en ollut yksin vastuussa
-            kaikesta vaan sain olla osana ryhmää mikä helpotti omalta osaltaan
-            taakkaa kun tehtävät asiat pystyi jakamaan useamman henkilön kesken.
-            Ryhmämme yhteistyö toimi muutenkin moitteitta ja kaikki kantoivat
-            oman vetensä ja suorittivat roolinsa erittäin hyvin.
-          </p>
-          <p>
-            Kommunikointi ryhmän sisällä toimi loistavasti ja kaikki antoivat
-            sekä saivat apua tarvittaessa ryhmän muilta jäseniltä. Mikäli ryhmän
-            jäsen sai omat tehtävänsä valmiiksi, tämä siirtyi oma-aloitteisesti
-            tekemään seuraavaa asiaa, tai auttoi muita.
+            Even though I already had some experience with a SCRUM project from
+            the spring courses, my understanding of the tasks of different roles
+            and the management of the overall picture grew during the project.
           </p>
 
-          <li>Ongelmien/tavoitteiden pilkkominen</li>
+          <li>Teamwork: </li>
           <p>
-            Projektin edetessä, opin pilkkomaan ongelmia sekä saavutettavia
-            tavoitteita mahdollisimman pieniin osiin, jotta suuremmatkin
-            ongelmat/tavoitteet oli helpompaa ratkaista.
+            Specifically from the perspective of application development, I was
+            not solely responsible for everything but was able to be part of a
+            team, which in itself eased the burden when the tasks could be
+            shared among several people. Otherwise, our team's collaboration
+            worked flawlessly, and everyone carried their own weight and
+            performed their role very well.
+          </p>
+          <p>
+            Communication within the group worked brilliantly and everyone both
+            gave and received help from other group members when needed. If a
+            group member finished their own tasks, they would proactively move
+            on to the next thing or help others.
           </p>
 
-          <li>Luottamusta omiin taitoihin ja ideoihin:</li>
+          <li>Breaking down problems/goals</li>
           <p>
-            Projektin edetessä sekä palaveroidessa ryhmän kesken, oman
-            sovelluskehityksen, että avustaessa muita ongelmien kanssa huomasin
-            omien taitojeni kehittyvän sekä sovelluskehyksen (Next.js)
-            käytänteiden parissa, että yleisesti ottaen ongelmia ratkaistessa.
-            Opin myös, että välillä kannattaa madaltaa rimaa tiedonhakuun,
-            vaikka olisikin ns. "yksinkertainen" ongelma, jollaisen ennenkin on
-            ratkaissut.
+            As the project progressed, I learned to break down problems and
+            achievable goals into the smallest possible parts, so that even
+            larger problems/goals were easier to solve.
           </p>
 
-          <li>Suunnittelun tärkeys:</li>
+          <li>Confidence in one's own skills and ideas:</li>
           <p>
-            Projektin loppua kohden käydyissä palavereissa suunnittelu nousi
-            aina suurempaan osaan mitä projektia aloittaessa, asiat pilkottiin
-            todella pieniin osiin ja käytettiin enemmän aikaa miettimään
-            ratkaisuja. Näin jälkeenpäin miettiessä olisi ollut hyvä suunnitella
-            vielä tarkemmin projektin alussa esimerkiksi kaikki teknologiat,
-            pilkkoa tavoitteet pienempiin osiin, jotta ne eivät vaikuta niin
-            suurilta ja käydä läpi projektin kokonaiskuva mahdollisimman
-            tarkasti. Vaikka sanoisinkin, että projektimme sujui vähintäänkin
-            hyvin, huomasin itse alussa lieviä vaikeuksia sen suhteen, että
-            lähdimme melko nopeasti tekemään koodia ja emme miettineet
-            välttämättä esimerkiksi projektin kokoa riittävän tarkasti, toki
-            esimerkiksi ensimmäisen demoesityksen jälkeen ymmärsimme saadusta
-            palautteesta, että olimme lähteneet vähän liian laajalla skaalalla
-            työskentelyyn.
+            As the project progressed and during group discussions, both among
+            the group, in my own application development, and in helping others
+            with problems, I noticed my skills improving both in working with
+            the application framework (Next.js) and in problem-solving in
+            general. I also learned that sometimes it is worth lowering the bar
+            when searching for information, even if it is a so-called 'simple'
+            problem that one has solved before.
           </p>
-          <li>Asiakkaan vaikutus projektiin:</li>
+
+          <li>The importance of planning:</li>
           <p>
-            Vaikka projektimme ei ollut ns. "asiakasprojekti", opettajien antama
-            palaute esimerkiksi ensimmäisen demoesityksen jälkeen toimi niin
-            sanotusti asiakaspalautteena, jonka jälkeen lähdimme muokkaamaan
-            projektiamme yksinkertaisempaan suuntaan.
+            In the meetings held towards the end of the project, planning became
+            a larger part than at the beginning of the project; things were
+            broken down into very small parts and more time was spent thinking
+            about solutions. In hindsight, it would have been good to plan even
+            more precisely at the start of the project, for example all the
+            technologies, break goals down into smaller parts so that they don't
+            seem so large, and go through the overall picture of the project as
+            accurately as possible. Although I would say that our project went
+            at least well, I noticed at the beginning some minor difficulties in
+            the sense that we started coding relatively quickly and did not
+            necessarily think, for example, about the project size accurately
+            enough. Of course, for instance, after the first demo presentation,
+            we understood from the feedback that we had started working on a
+            slightly too large scale.
+          </p>
+          <li>Customer's impact on the project:</li>
+          <p>
+            Although our project was not a so-called 'client project,' the
+            feedback given by the teachers, for example after the first demo
+            presentation, served as so-called client feedback, after which we
+            started to modify our project in a simpler direction.
           </p>
         </ul>
 
         <p>
           {' '}
-          Tekniseltä puolelta suurimmaksi onnistumisekseni lasken toimivan
-          tilanhallinan luonnin ja uuden frameworkin oppimisen. Kun taas
-          henkilökohtaisen kasvun ja projektityöskentelyn kannalta suurimmat
-          onnistumiset olivat projektin syklien ja eri vaiheiden käytänteiden
-          oppimisen ja ryhmätyöskentelyn kokemuksien saamisen sovelluskehityksen
-          parissa. Koen myös tärkeänä mainita, että koko ryhmän toiminta ja
-          lopputulos olivat suuria onnistumisia.
+          From a technical standpoint, I consider my greatest achievements to be
+          creating a functional state management system and learning a new
+          framework. On the other hand, in terms of personal growth and project
+          work, the greatest successes were learning the practices of project
+          cycles and various phases, and gaining experience in teamwork through
+          application development. I also consider it important to mention that
+          the performance of the entire team and the final result were great
+          successes.
         </p>
       </div>
       <div className="images">
-        <Image
-          key={1}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/datareducer1.png"
-          alt="Image 1"
-          onClick={() => handleImageClick(1)}
-        />
-        <p>Image 1</p>
-
-        <Image
-          key={2}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/datareducer2.png"
-          alt="Image 2"
-          onClick={() => handleImageClick(2)}
-        />
-        <p>Image 2</p>
-
-        <Image
-          key={3}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/datareducer3.png"
-          alt="Image 3"
-          onClick={() => handleImageClick(3)}
-        />
-        <p>Image 3</p>
-
-        <Image
-          key={4}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/navigointifunktio.png"
-          alt="Image 4"
-          onClick={() => handleImageClick(4)}
-        />
-        <p>Image 4</p>
-
-        <Image
-          key={5}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/redux-devtools.png"
-          alt="Image 5"
-          onClick={() => handleImageClick(5)}
-        />
-        <p>Image 5</p>
-
-        <Image
-          key={6}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/saavutettavuus.png"
-          alt="Image 6"
-          onClick={() => handleImageClick(6)}
-        />
-        <p>Image 6</p>
-
-        <Image
-          key={7}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/stackbuildernappulat.png"
-          alt="Image 7"
-          onClick={() => handleImageClick(7)}
-        />
-        <p>Image 7</p>
-
-        <Image
-          key={8}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/storage.png"
-          alt="Image 8"
-          onClick={() => handleImageClick(8)}
-        />
-        <p>Image 8</p>
-
-        <Image
-          key={9}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/store.png"
-          alt="Image 9"
-          onClick={() => handleImageClick(9)}
-        />
-        <p>Image 9</p>
-
-        <Image
-          key={10}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/storets_persistConfig.png"
-          alt="Image 10"
-          onClick={() => handleImageClick(10)}
-        />
-        <p>Image 10</p>
-
-        <Image
-          key={11}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/storewrap.png"
-          alt="Image 11"
-          onClick={() => handleImageClick(11)}
-        />
-        <p>Image 11</p>
-
-        <Image
-          key={12}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/tilanjaarvonesimerkki.png"
-          alt="Image 13"
-          onClick={() => handleImageClick(12)}
-        />
-        <p>Image 12</p>
-
-        <Image
-          key={13}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/tutorial.png"
-          alt="Image 13"
-          onClick={() => handleImageClick(13)}
-        />
-        <p>Image 13</p>
-
-        <Image
-          key={14}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/tutorialmodal.png"
-          alt="Image 14"
-          onClick={() => handleImageClick(14)}
-        />
-        <p>Image 14</p>
-
-        <Image
-          key={15}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/tutorialmodalinreitinkuuntelija.png"
-          alt="Image 15"
-          onClick={() => handleImageClick(15)}
-        />
-        <p>Image 15</p>
-
-        <Image
-          key={16}
-          width={isEnlarged ? 1000 : 500}
-          height={isEnlarged ? 600 : 300}
-          src="/useEffectesimerkki.png"
-          alt="Image 16"
-          onClick={() => handleImageClick(16)}
-        />
-        <p>Image 16</p>
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`image-container ${isEnlarged && index === currentImageIndex ? 'enlarged' : ''}`}
+            onClick={() => {
+              handleImageClick(index);
+              enlargeImage(index);
+            }}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              layout="responsive"
+              objectFit="contain"
+            />
+          </div>
+        ))}
       </div>
+      {isEnlarged && (
+        <div
+          className="enlarged-image-container "
+          style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: '999',
+            backdropFilter: 'blur(5px)',
+            width: '100vw',
+            height: '100vh',
+            maxWidth: '100%',
+            maxHeight: '100%',
+            overflow: 'auto',
+            objectFit: 'contain',
+          }}
+        >
+          <Image
+            src={images[currentImageIndex].src}
+            alt={images[currentImageIndex].alt}
+            width={images[currentImageIndex].width}
+            height={images[currentImageIndex].height}
+            objectFit="contain"
+          />
+          <button
+            className="closeButton"
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+              color: 'white',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+            onClick={() => setIsEnlarged(false)}
+          >
+            Close
+          </button>
+        </div>
+      )}
     </main>
   );
 };

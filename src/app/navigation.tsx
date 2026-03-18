@@ -7,7 +7,6 @@ export default function Navigation() {
       <Link href="/studies">Studies</Link>
       <Link href="/internship">Internship</Link>
       <Link href="/ticorporate">Ticorporate</Link>
-      <Link href="/hobbies">Hobbies</Link>
     </nav>
   );
 }

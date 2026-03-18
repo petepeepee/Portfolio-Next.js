@@ -17,7 +17,7 @@ export default function Header({ children }: HeaderProps) {
       <div className="navigation">
         <Hamburger toggled={isOpen} toggle={toggleMenu} />
 
-        {isOpen && <div>{children} </div>}
+        {isOpen && <div onClick={toggleMenu}>{children} </div>}
       </div>
     </header>
   );

@@ -1,15 +1,15 @@
 @import 'tailwindcss';
 
 :root {
-  @apply bg-black text-white;
+  @apply bg-white text-black;
 }
 
 Header {
-  @apply text-center top-0 absolute w-full flex justify-center;
+  @apply text-center top-0 w-full flex justify-center;
 }
 
 Footer {
-  @apply bottom-0 fixed w-full flex justify-center;
+  @apply w-full  flex justify-center flex-shrink mt-auto;
 }
 
 .socialList {
@@ -17,7 +17,7 @@ Footer {
 }
 
 body {
-  @apply min-h-screen flex justify-center flex-col;
+  @apply min-h-screen flex flex-col;
 }
 
 h1 {
@@ -33,7 +33,7 @@ p {
 }
 
 a {
-  @apply text-2xl font-bold p-2 hover:bg-gray-400 hover:opacity-100;
+  @apply text-2xl font-bold p-2 hover:bg-black hover:text-white hover:opacity-100;
 }
 
 .navigation {
@@ -41,49 +41,41 @@ a {
 }
 
 .navList {
-  @apply flex flex-col;
+  @apply flex flex-col  rounded-xl;
 }
 
 /*entrypage*/
 
 .entryPage {
-  @apply flex justify-center;
+  @apply relative flex flex-row flex-1 justify-center overflow-hidden min-h-screen m-2;
 }
 
 .entryText {
-  @apply w-1/4 left-50 absolute top-30 p-2;
-}
-
-.profilePicture {
-  @apply w-1/3 right-50 absolute top-30 p-2;
+  @apply w-4/6;
 }
 
 /*hobbies*/
 
 .hobbiesPage {
-  @apply max-h-[87.5vh] flex flex-col justify-center;
+  @apply relative flex flex-row flex-1 justify-center overflow-hidden min-h-screen m-0.5;
 }
 
 .hobbiesImage img {
-  @apply opacity-40 blur-sm max-h-[85.5vh] object-cover z-0;
+  @apply w-full h-full object-cover opacity-30 blur-sm;
 }
 
-.hobbiesText h1 {
-  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-white;
-}
-
-.hobbiesText p {
-  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-white;
+.hobbiesText {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sm;
 }
 
 /*ticorporate*/
 
 .ticorporatePage {
-  @apply flex flex-row justify-center m-2;
+  @apply flex flex-col justify-center m-2;
 }
 
 .ticoText {
-  @apply w-2/3 mt-30;
+  @apply mt-30;
 }
 
 .teknologiat {
@@ -91,7 +83,15 @@ a {
 }
 
 .images {
-  @apply flex flex-col w-1/3 m-30;
+  @apply flex  gap-2 p-5 border-2 border-white rounded-lg;
+}
+
+.images img {
+  @apply rounded-lg hover:cursor-pointer;
+}
+
+.image-container {
+  @apply flex flex-col items-center hover:w-6xl w-3xl;
 }
 
 ul {
@@ -99,4 +99,59 @@ ul {
 }
 li {
   @apply font-bold text-lg p-2;
+}
+
+/*internship*/
+
+.internshipPage {
+  @apply flex  justify-center m-2;
+}
+
+@media (max-width: 768px) {
+  .entryPage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navigation {
+    background-color: black;
+    color: white;
+  }
+
+  .ticorporatePage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ticoText {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .teknologiat {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .images {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .internshipPage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .studiesPage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
