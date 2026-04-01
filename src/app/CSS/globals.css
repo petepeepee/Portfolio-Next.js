@@ -86,10 +86,6 @@ a {
   @apply flex  gap-2 p-5 border-2 border-white rounded-lg;
 }
 
-.images img {
-  @apply rounded-lg hover:cursor-pointer;
-}
-
 .image-container {
   @apply flex flex-col items-center hover:w-6xl w-3xl;
 }
@@ -98,7 +94,7 @@ ul {
   @apply flex flex-col gap-2;
 }
 li {
-  @apply font-bold text-lg p-2;
+  @apply font-bold text-xl p-2;
 }
 
 /*internship*/
@@ -107,6 +103,7 @@ li {
   @apply flex  justify-center m-2;
 }
 
+/*mobile screen*/
 @media (max-width: 768px) {
   .entryPage {
     flex-direction: column;
@@ -135,6 +132,19 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .image-container {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+  .image-container:hover {
+    width: 75%;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
   }
 
   .images {
