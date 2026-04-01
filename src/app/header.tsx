@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Hamburger from 'hamburger-react';
+import Weather from './components/Weather';
 
 type HeaderProps = {
   children?: React.ReactNode;
@@ -13,6 +14,7 @@ export default function Header({ children }: HeaderProps) {
 
   return (
     <header className="header">
+      <Weather />
       <h1>Portfolio</h1>
       <div className="navigation">
         <Hamburger toggled={isOpen} toggle={toggleMenu} />
