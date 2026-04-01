@@ -23,7 +23,7 @@ export default function Weather() {
   // location access denied
   if (error) {
     return (
-      <div className="absolute top-5 left-0 p-2 z-100">
+      <div className="weatherError">
         <ul>{error}</ul>
       </div>
     );
@@ -32,8 +32,8 @@ export default function Weather() {
   // wating for location
   if (!coords) {
     return (
-      <div className="absolute top-5 left-0 p-2 z-100 font-bold">
-        <ul>Detecting your location...</ul>
+      <div className="weather">
+        <ul>Detecting location...</ul>
       </div>
     );
   }

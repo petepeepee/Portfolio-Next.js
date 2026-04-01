@@ -28,7 +28,7 @@ export function useUserLocation() {
           });
         },
         () => {
-          setError('Error obtaining geolocation');
+          setError('Location denied');
         },
       );
     };
